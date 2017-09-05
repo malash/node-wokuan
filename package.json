@@ -8,6 +8,7 @@
     "wokuan": "dist/cli.cjs.js"
   },
   "scripts": {
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist",
     "build": "npm run clean && npm run build:cjs && npm run build:es",
