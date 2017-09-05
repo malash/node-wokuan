@@ -1,5 +1,7 @@
 # 中国联通“沃宽”客户端NodeJS版
 
+[![npm (scoped)](https://img.shields.io/npm/v/wokuan.svg?maxAge=86400)](https://www.npmjs.com/package/wokuan)
+
 ## 介绍
 
 [沃宽](http://wokuan.bbn.com.cn/)是中国联通出品的一款App，其中“带宽提速”功能格外具有亮点。
