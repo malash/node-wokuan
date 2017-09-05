@@ -10,6 +10,7 @@ const isProd = env === 'production';
 
 const config = {
   input: `src/${entry}.js`,
+  banner: entry === 'cli' ? '#!/usr/bin/env node' : '',
   external: Object.keys(Object.assign({}, dependencies, devDependencies, peerDependencies)),
   plugins: [
     json(),
