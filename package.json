@@ -26,7 +26,8 @@
     "rimraf": "^2.6.1",
     "rollup": "^0.49.2",
     "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-commonjs": "^8.2.0"
+    "rollup-plugin-commonjs": "^8.2.0",
+    "rollup-plugin-json": "^2.3.0"
   },
   "dependencies": {
     "awaiting": "^3.0.0",

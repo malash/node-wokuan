@@ -1,3 +1,4 @@
+import json from 'rollup-plugin-json';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import { dependencies, devDependencies, peerDependencies } from './package.json';
@@ -11,6 +12,7 @@ const config = {
   input: `src/${entry}.js`,
   external: Object.keys(Object.assign({}, dependencies, devDependencies, peerDependencies)),
   plugins: [
+    json(),
     commonjs(),
     babel({
       babelrc: false,
