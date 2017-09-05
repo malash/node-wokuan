@@ -1,0 +1,26 @@
+{
+  "name": "wokuan",
+  "version": "0.1.0",
+  "description": "China Unicom Node.js Client",
+  "main": "src/index.js",
+  "bin": {
+    "wokuan": "src/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "i@malash.me",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0"
+  },
+  "dependencies": {
+    "awaiting": "^3.0.0",
+    "axios": "^0.16.2",
+    "qs": "^6.5.0",
+    "uuid": "^3.1.0"
+  }
+}
