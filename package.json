@@ -2,24 +2,39 @@
   "name": "wokuan",
   "version": "0.1.0",
   "description": "China Unicom Node.js Client",
-  "main": "src/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "bin": {
-    "wokuan": "src/cli.js"
+    "wokuan": "dist/cli.cjs.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run build:cjs && npm run build:es",
+    "build:cjs": "cross-env ENTRY=index TARGET=cjs rollup -c && cross-env ENTRY=cli TARGET=cjs rollup -c",
+    "build:es": "cross-env ENTRY=index TARGET=es rollup -c && cross-env ENTRY=cli TARGET=es rollup -c"
   },
   "author": "i@malash.me",
   "license": "MIT",
   "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
-    "babel-register": "^6.26.0"
+    "babel-register": "^6.26.0",
+    "cross-env": "^5.0.5",
+    "rimraf": "^2.6.1",
+    "rollup": "^0.49.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.0"
   },
   "dependencies": {
     "awaiting": "^3.0.0",
     "axios": "^0.16.2",
+    "commander": "^2.11.0",
+    "node-persist": "^2.1.0",
+    "ora": "^1.3.0",
+    "prettyjson": "^1.2.1",
     "qs": "^6.5.0",
     "uuid": "^3.1.0"
   }

@@ -1,14 +1,32 @@
+import storage from 'node-persist';
+storage.initSync({
+  dir: `${process.env.HOME}/.wokuan`,
+});
 import uuidv4 from 'uuid/v4';
 import api, {
   GET_ABILITY,
   GET_STATUS,
   ADD_START,
+  ADD_STOP,
 } from './api';
 
 export default class Wokuan {
+
+  constructor({
+    refresh = false,
+  } = {}) {
+    const savedDevId = storage.getItemSync('devId');
+    if (!refresh && savedDevId) {
+      this.__data.devId = savedDevId;
+    } else {
+      const newDevId = uuidv4();
+      storage.setItemSync('devId', newDevId);
+      this.__data.devId = newDevId;
+    }
+  }
+
   __data = {
     distCode: 'UNICOM_BJ',
-    devId: uuidv4(),
   };
 
   __getQuery() {
@@ -20,7 +38,7 @@ export default class Wokuan {
       uid: '0',
       vid: '2.3.3',
       devType: 'ios',
-      sign: '0b775a66eef6685ebe3cdd87bc82f4f9',
+      sign: '0',
       osver: '11.0',
       token: '0',
     };
@@ -74,4 +92,17 @@ export default class Wokuan {
     return data;
   };
 
+  async addStop() {
+    const data = await api({
+      action: ADD_STOP,
+      query: this.__getQuery(),
+    });
+    return data;
+  }
+
+  refreshDevId() {
+    const newDevId = uuidv4();
+    storage.setItemSync('devId', newDevId);
+    this.__data.devId = newDevId;
+  }
 };
