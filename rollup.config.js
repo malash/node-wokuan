@@ -27,7 +27,12 @@ const config = {
         }],
         'stage-0',
       ],
-      plugins: ['external-helpers'],
+      plugins: [
+        'external-helpers',
+        'transform-runtime',
+      ],
+      externalHelpers: false,
+      runtimeHelpers: true,
     }),
   ],
   output: {
