@@ -40,7 +40,7 @@ program
     const spinner = ora('获取基本信息').start();
     const aiblityData = await wokuan.getAbility();
     spinner.succeed(`获取基本信息`);
-    verbose(aiblityData);
+    console.log(prettyjson.render(aiblityData));
   });
 
 const STATUS_MAP = {
@@ -60,7 +60,7 @@ program
       const statusData = await wokuan.getStatus();
       const { status, userSpeedupLength } = statusData;
       spinner.succeed(`获取加速状态: ${getStatusMap(status)}, 可用时间 ${userSpeedupLength} 分钟`);
-      verbose(statusData);
+      console.log(prettyjson.render(statusData));
     } catch (e) {
       spinner.fail('获取加速状态失败');
       console.error(e);
