@@ -39,7 +39,7 @@ wokuan info
 包括剩余时间等。
 
 ```bash
-wokuan info
+wokuan status
 ```
 
 ### 开始加速
